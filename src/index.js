@@ -3,27 +3,30 @@ import ReactDOM from "react-dom";
 // import App from "./App";
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isLoggedIn: false
+    };
+  }
+
   render() {
+    let wordDisplay;
+    if (this.state.isLoggedIn === true) {
+      wordDisplay = "in";
+    } else {
+      wordDisplay = "out";
+    }
+
     return (
       <div>
-        <Header username="react_practice" />
-        <Greeting />
+        <h1>You're currently logged {wordDisplay}</h1>
       </div>
     );
   }
 }
 
-class Header extends React.Component {
-  render() {
-    return (
-      <header>
-        <p>Welcome, {this.props.username}!</p>
-      </header>
-    );
-  }
-}
-
-class Greeting extends Component {
+class Greeting extends React.Component {
   render() {
     const date = new Date();
     const hours = date.getHours();
@@ -40,8 +43,5 @@ class Greeting extends Component {
   }
 }
 
+// ReactDOM.render(<Greeting />, document.getElementById("root"));
 ReactDOM.render(<App />, document.getElementById("root"));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
