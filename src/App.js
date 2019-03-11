@@ -24,6 +24,8 @@ class App extends React.Component {
       <div>
         <h1>{this.state.count}</h1>
         <button onClick={this.handleClick}>Change</button>
+        {/* Can take obj literal or function that takes prev state as param, returning object literal that represents new version of state */}
+        {/* <ChildComponent count={this.state.count} /> */}
       </div>
     );
   }
