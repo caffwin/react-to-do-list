@@ -42,6 +42,18 @@ class App extends React.Component {
 
   handleChange(id) {
     console.log("Changed", id);
+    // loop through array and create new array using .map method with updated value
+    this.setState(prevState => {
+      const updatedTodos = prevState.todos.map(todo => {
+        if (todo.id == id) {
+          todo.completed = !todo.completed;
+        }
+        return todo; // puts todo item in new array in same index of original array
+      });
+      return {
+        todos: updatedTodos // array just created
+      };
+    });
   }
 
   render() {
