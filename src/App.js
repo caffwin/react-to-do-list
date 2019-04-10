@@ -51,7 +51,7 @@ class App extends React.Component {
         return todo; // puts todo item in new array in same index of original array
       });
       return {
-        todos: updatedTodos // array just created
+        todos: updatedTodos // array just created, replacing old array
       };
     });
   }
